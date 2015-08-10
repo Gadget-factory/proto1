@@ -31,6 +31,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
 
+import plop.data.TelemetryFileService;
 import plop.data.TelemetryFileServiceImpl;
 
 /**
@@ -55,7 +56,7 @@ public class BluetoothChatService
     private ConnectedThread mConnectedThread;
     private int mState;
 
-    private TelemetryFileServiceImpl telemetryFileService;
+    private TelemetryFileService telemetryFileService;
 
 
     // Constants that indicate the current connection state
@@ -78,7 +79,7 @@ public class BluetoothChatService
         telemetryFileService = new TelemetryFileServiceImpl(context);
     }
 
-    public TelemetryFileServiceImpl getTelemetryFileService()
+    public TelemetryFileService getTelemetryFileService()
     {
         return telemetryFileService;
     }

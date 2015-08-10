@@ -1,7 +1,7 @@
 package plop.data;
 
 /**
- *
+ * Simple interface for loggable data
  */
 public interface LoggableData
 {

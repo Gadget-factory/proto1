@@ -11,7 +11,7 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import plop.data.TelemetryFileServiceImpl;
+import plop.data.TelemetryFileService;
 
 /**
  *
@@ -23,9 +23,9 @@ public class RecordButtonClickListener implements View.OnClickListener
 
 
     private Context context;
-    private TelemetryFileServiceImpl telemetryFileService;
+    private TelemetryFileService telemetryFileService;
 
-    public RecordButtonClickListener(Context context, TelemetryFileServiceImpl telemetryFileService)
+    public RecordButtonClickListener(Context context, TelemetryFileService telemetryFileService)
     {
         this.context = context;
         this.telemetryFileService = telemetryFileService;
@@ -58,7 +58,7 @@ public class RecordButtonClickListener implements View.OnClickListener
                             telemetryFileService.finalizeFile(file);
                         }
                     });
-
+            dialog.Default_File_Name = telemetryFileService.getCurrentFile().getName();
             dialog.chooseFile_or_Dir(telemetryFileService.getCurrentFile().getParent());
         }
     }

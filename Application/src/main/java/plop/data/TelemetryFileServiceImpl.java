@@ -14,7 +14,7 @@ import java.io.IOException;
 /**
  *
  */
-public class TelemetryFileServiceImpl
+public class TelemetryFileServiceImpl implements TelemetryFileService
 {
     private static final String TAG = "TelemetryFileService";
 
@@ -29,6 +29,7 @@ public class TelemetryFileServiceImpl
         this.context = context;
     }
 
+    @Override
     public void openNewFile(String fileName)
     {
         if(currentFile != null)
@@ -56,11 +57,13 @@ public class TelemetryFileServiceImpl
         }
     }
 
+    @Override
     public File getCurrentFile()
     {
         return currentFile;
     }
 
+    @Override
     public void finalizeFile(File finalFile)
     {
         try
@@ -80,6 +83,7 @@ public class TelemetryFileServiceImpl
         }
     }
 
+    @Override
     public void addLogEntry(String logEntry, boolean binary)
     {
         if(writeThread != null && writeThread.isAlive())
@@ -102,6 +106,7 @@ public class TelemetryFileServiceImpl
     }
 
     /* Checks if external storage is available for read and write */
+    @Override
     public boolean isExternalStorageWritable()
     {
         String state = Environment.getExternalStorageState();
@@ -113,6 +118,7 @@ public class TelemetryFileServiceImpl
     }
 
     /* Checks if external storage is available to at least read */
+    @Override
     public boolean isExternalStorageReadable()
     {
         String state = Environment.getExternalStorageState();
@@ -124,6 +130,7 @@ public class TelemetryFileServiceImpl
         return false;
     }
 
+    @Override
     public File getStorageFile(String fileName) throws IOException
     {
         // Get the directory for the user's public pictures directory.

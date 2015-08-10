@@ -123,7 +123,7 @@ public class TelemetryData implements LoggableData
     @Override
     public byte[] getLogData()
     {
-        return new byte[0];
+        return logEntry.getBytes();
     }
 
     public String getVoltageString()
