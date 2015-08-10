@@ -1,12 +1,9 @@
 package plop.plop.ui;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.example.android.bluetoothchat.MainActivity;
 import com.example.android.bluetoothchat.R;
 import com.scorchworks.demo.SimpleFileDialog;
 
@@ -19,7 +16,8 @@ import plop.data.TelemetryFileServiceImpl;
 /**
  *
  */
-public class RecordButtonClickListener implements View.OnClickListener {
+public class RecordButtonClickListener implements View.OnClickListener
+{
 
     private boolean recording = false;
 
@@ -34,10 +32,12 @@ public class RecordButtonClickListener implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View v) {
-        Button button = (Button) v.findViewById(R.id.record);
+    public void onClick(View v)
+    {
+        Button button = (Button)v.findViewById(R.id.record);
 
-        if(!recording) {
+        if(!recording)
+        {
             recording = true;
             String dateStr = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
             telemetryFileService.openNewFile("wheelemetrics_log_" + dateStr + ".txt");

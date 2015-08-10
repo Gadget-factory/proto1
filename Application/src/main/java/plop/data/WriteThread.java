@@ -16,7 +16,8 @@ public class WriteThread extends Thread
 
     private final OutputStream outStream;
 
-    public void setSyncEveryNSamples(int syncEveryNSamples) {
+    public void setSyncEveryNSamples(int syncEveryNSamples)
+    {
         this.syncEveryNSamples = syncEveryNSamples;
     }
 
@@ -56,7 +57,8 @@ public class WriteThread extends Thread
     }
 
     @Override
-    public void run() {
+    public void run()
+    {
         running = true;
         while(running)
         {
@@ -66,8 +68,7 @@ public class WriteThread extends Thread
                 try
                 {
                     Thread.sleep(100);
-                }
-                catch(InterruptedException e)
+                } catch(InterruptedException e)
                 {
                     running = false;
                 }
@@ -83,8 +84,7 @@ public class WriteThread extends Thread
                         sampleCountSinceSync = 0;
                         outStream.flush();
                     }
-                }
-                catch(Exception e)
+                } catch(Exception e)
                 {
                     Log.e(TAG, "Exception writing to file", e);
                 }
@@ -103,14 +103,14 @@ public class WriteThread extends Thread
 
             outStream.flush();
             outStream.close();
-        }
-        catch(IOException e)
+        } catch(IOException e)
         {
             Log.e(TAG, "Exception while flushing & closing file", e);
         }
     }
 
-    private void writeToFile(LoggableData data) throws IOException {
+    private void writeToFile(LoggableData data) throws IOException
+    {
         switch(data.getLogDataType())
         {
             case BINARY:

@@ -20,7 +20,8 @@ package com.example.android.common.logger;
  * Useful for situations like on-screen log output where you don't want a lot of metadata displayed,
  * just easy-to-read message updates as they're happening.
  */
-public class MessageOnlyLogFilter implements LogNode {
+public class MessageOnlyLogFilter implements LogNode
+{
 
     LogNode mNext;
 
@@ -29,16 +30,20 @@ public class MessageOnlyLogFilter implements LogNode {
      *
      * @param next The next LogNode in the pipeline.
      */
-    public MessageOnlyLogFilter(LogNode next) {
+    public MessageOnlyLogFilter(LogNode next)
+    {
         mNext = next;
     }
 
-    public MessageOnlyLogFilter() {
+    public MessageOnlyLogFilter()
+    {
     }
 
     @Override
-    public void println(int priority, String tag, String msg, Throwable tr) {
-        if (mNext != null) {
+    public void println(int priority, String tag, String msg, Throwable tr)
+    {
+        if(mNext != null)
+        {
             getNext().println(Log.NONE, null, msg, null);
         }
     }
@@ -46,14 +51,16 @@ public class MessageOnlyLogFilter implements LogNode {
     /**
      * Returns the next LogNode in the chain.
      */
-    public LogNode getNext() {
+    public LogNode getNext()
+    {
         return mNext;
     }
 
     /**
      * Sets the LogNode data will be sent to..
      */
-    public void setNext(LogNode node) {
+    public void setNext(LogNode node)
+    {
         mNext = node;
     }
 

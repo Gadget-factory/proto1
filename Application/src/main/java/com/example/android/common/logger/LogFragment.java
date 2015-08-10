@@ -46,14 +46,18 @@ import android.widget.ScrollView;
  * Simple fraggment which contains a LogView and uses is to output log data it receives
  * through the LogNode interface.
  */
-public class LogFragment extends Fragment {
+public class LogFragment extends Fragment
+{
 
     private LogView mLogView;
     private ScrollView mScrollView;
 
-    public LogFragment() {}
+    public LogFragment()
+    {
+    }
 
-    public View inflateViews() {
+    public View inflateViews()
+    {
         mScrollView = new ScrollView(getActivity());
         ViewGroup.LayoutParams scrollParams = new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
@@ -71,7 +75,7 @@ public class LogFragment extends Fragment {
         // Want to set padding as 16 dips, setPadding takes pixels.  Hooray math!
         int paddingDips = 16;
         double scale = getResources().getDisplayMetrics().density;
-        int paddingPixels = (int) ((paddingDips * (scale)) + .5);
+        int paddingPixels = (int)((paddingDips * (scale)) + .5);
         mLogView.setPadding(paddingPixels, paddingPixels, paddingPixels, paddingPixels);
         mLogView.setCompoundDrawablePadding(paddingPixels);
 
@@ -84,26 +88,34 @@ public class LogFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
 
         View result = inflateViews();
 
-        mLogView.addTextChangedListener(new TextWatcher() {
+        mLogView.addTextChangedListener(new TextWatcher()
+        {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after)
+            {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count)
+            {
+            }
 
             @Override
-            public void afterTextChanged(Editable s) {
+            public void afterTextChanged(Editable s)
+            {
                 mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
             }
         });
         return result;
     }
 
-    public LogView getLogView() {
+    public LogView getLogView()
+    {
         return mLogView;
     }
 }

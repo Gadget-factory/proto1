@@ -4,18 +4,19 @@ import com.example.android.common.logger.Log;
 
 /**
  * Data logged from uC
- *
- 123,-456,78,90,123,456,-7890,1
- 123 => 12.3 V
- -456 => -45.6 A
- 78 => 78°C sensor 1 (mosfets)
- 90 => 90°C sensor 2 (battery)
- 123 => 12.3°
- 456 => 4.56 rps (revolutions per second)
- -7890 => -7890 WS (energy in watts.seconds , '-' => braking)
- 1 => buzzer = ON (0=> buzzer = Off)
+ * <p/>
+ * 123,-456,78,90,123,456,-7890,1
+ * 123 => 12.3 V
+ * -456 => -45.6 A
+ * 78 => 78°C sensor 1 (mosfets)
+ * 90 => 90°C sensor 2 (battery)
+ * 123 => 12.3°
+ * 456 => 4.56 rps (revolutions per second)
+ * -7890 => -7890 WS (energy in watts.seconds , '-' => braking)
+ * 1 => buzzer = ON (0=> buzzer = Off)
  */
-public class TelemetryData implements LoggableData {
+public class TelemetryData implements LoggableData
+{
 
     private static final String SEPARATOR = ",";
 
@@ -54,7 +55,8 @@ public class TelemetryData implements LoggableData {
         buzzer = values[7].startsWith("1");
     }
 
-    public TelemetryData(String logEntry, int voltage, int current, int boardTemperature, int batteryTemperature, int inclination, int rps, int wattSeconds, boolean buzzer) {
+    public TelemetryData(String logEntry, int voltage, int current, int boardTemperature, int batteryTemperature, int inclination, int rps, int wattSeconds, boolean buzzer)
+    {
         this.logEntry = logEntry;
         this.voltage = voltage;
         this.current = current;
@@ -66,50 +68,61 @@ public class TelemetryData implements LoggableData {
         this.buzzer = buzzer;
     }
 
-    public boolean getBuzzer() {
+    public boolean getBuzzer()
+    {
         return buzzer;
     }
 
-    public int getWattSeconds() {
+    public int getWattSeconds()
+    {
         return wattSeconds;
     }
 
-    public int getRps() {
+    public int getRps()
+    {
         return rps;
     }
 
-    public int getInclination() {
+    public int getInclination()
+    {
         return inclination;
     }
 
-    public int getBatteryTemperature() {
+    public int getBatteryTemperature()
+    {
         return batteryTemperature;
     }
 
-    public int getBoardTemperature() {
+    public int getBoardTemperature()
+    {
         return boardTemperature;
     }
 
-    public int getCurrent() {
+    public int getCurrent()
+    {
         return current;
     }
 
-    public int getVoltage() {
+    public int getVoltage()
+    {
         return voltage;
     }
 
     @Override
-    public LogDataType getLogDataType() {
+    public LogDataType getLogDataType()
+    {
         return LogDataType.STRING;
     }
 
     @Override
-    public String getLogEntry() {
+    public String getLogEntry()
+    {
         return logEntry;
     }
 
     @Override
-    public byte[] getLogData() {
+    public byte[] getLogData()
+    {
         return new byte[0];
     }
 
@@ -142,17 +155,21 @@ public class TelemetryData implements LoggableData {
         {
             str.append(0);
         }
-        else {
-            for (int i = 0; i < numberStr.length - decimals; i++) {
+        else
+        {
+            for(int i = 0; i < numberStr.length - decimals; i++)
+            {
                 str.append(numberStr[i]);
             }
         }
 
         str.append(".");
 
-        int startIndex = numberStr.length-decimals;
-        if(startIndex >= 0) {
-            for (int i = startIndex; i < numberStr.length; i++) {
+        int startIndex = numberStr.length - decimals;
+        if(startIndex >= 0)
+        {
+            for(int i = startIndex; i < numberStr.length; i++)
+            {
                 str.append(numberStr[i]);
             }
         }

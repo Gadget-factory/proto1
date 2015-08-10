@@ -3,7 +3,6 @@ package plop.graph;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
-import com.jjoe64.graphview.series.Series;
 
 /**
  *
@@ -23,7 +22,8 @@ public class GraphDataControl
         dataSeries.setTitle("Voltage");
     }
 
-    public synchronized void addDataPoint(double x, double y, boolean scrollToEnd) {
+    public synchronized void addDataPoint(double x, double y, boolean scrollToEnd)
+    {
         dataSeries.appendData(new DataPoint(x, y), scrollToEnd, 500);
     }
 

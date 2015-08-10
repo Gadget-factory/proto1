@@ -49,8 +49,7 @@ public class TelemetryFileServiceImpl
             BufferedOutputStream bos = new BufferedOutputStream((new FileOutputStream(currentFile)));
             writeThread = new WriteThread(bos);
             writeThread.start();
-        }
-        catch(Exception e)
+        } catch(Exception e)
         {
             Log.e(TAG, "Failed to start thread for file writing", e);
             throw new RuntimeException(e);
@@ -64,36 +63,38 @@ public class TelemetryFileServiceImpl
 
     public void finalizeFile(File finalFile)
     {
-        try {
+        try
+        {
             writeThread.cancel();
             writeThread.join(1000);
-            if (!currentFile.getAbsolutePath().equals(finalFile.getAbsolutePath())) {
+            if(!currentFile.getAbsolutePath().equals(finalFile.getAbsolutePath()))
+            {
                 currentFile.renameTo(finalFile);
             }
 
             //This is needed so the file updates as visible on some PCs...
             MediaScannerConnection.scanFile(context, new String[]{finalFile.getAbsolutePath()}, null, null);
-        }
-        catch(Exception e)
+        } catch(Exception e)
         {
             Log.e(TAG, "Failure while finalizing file", e);
         }
     }
 
-    public void addLogEntry(String logEntry, boolean binary) {
-        if (writeThread != null && writeThread.isAlive())
+    public void addLogEntry(String logEntry, boolean binary)
+    {
+        if(writeThread != null && writeThread.isAlive())
         {
             try
             {
-                if(!binary) {
+                if(!binary)
+                {
                     writeThread.write(new TelemetryData(logEntry));
                 }
                 else
                 {
                     //TODO
                 }
-            }
-            catch(Exception e)
+            } catch(Exception e)
             {
                 Log.w(TAG, "Exception handling log entry, invalid data?", e);
             }
@@ -101,19 +102,23 @@ public class TelemetryFileServiceImpl
     }
 
     /* Checks if external storage is available for read and write */
-    public boolean isExternalStorageWritable() {
+    public boolean isExternalStorageWritable()
+    {
         String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
+        if(Environment.MEDIA_MOUNTED.equals(state))
+        {
             return true;
         }
         return false;
     }
 
     /* Checks if external storage is available to at least read */
-    public boolean isExternalStorageReadable() {
+    public boolean isExternalStorageReadable()
+    {
         String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state) ||
-                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
+        if(Environment.MEDIA_MOUNTED.equals(state) ||
+                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state))
+        {
             return true;
         }
         return false;

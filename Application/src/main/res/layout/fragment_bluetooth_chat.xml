@@ -16,9 +16,9 @@
  limitations under the License.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <com.jjoe64.graphview.helper.GraphViewXML xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/graph"
@@ -26,32 +26,33 @@
         android:layout_height="200dip"
         app:seriesData="0=0; 200=0"
         app:seriesType="line"
-        app:seriesColor="#00cc00"
-        />
+        app:seriesColor="#00cc00" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
-        <CheckBox android:id="@+id/checkbox_chart"
+        <CheckBox
+            android:id="@+id/checkbox_chart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/enablechart"
-            android:checked="true"/>
+            android:checked="true" />
 
-        <CheckBox android:id="@+id/checkbox_scroll"
+        <CheckBox
+            android:id="@+id/checkbox_scroll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/scrolltoend"
-            android:checked="true"/>
+            android:checked="true" />
 
         <Button
             android:id="@+id/button_cleargraph"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
-            android:text="@string/cleargraph"/>
+            android:text="@string/cleargraph" />
     </LinearLayout>
 
     <FrameLayout
@@ -62,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <Spinner
                 android:id="@+id/graph_spinner"
                 android:layout_width="fill_parent"
@@ -80,7 +82,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/edit_text_out"
@@ -111,13 +113,14 @@
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="right" >
+            android:gravity="right">
+
             <Button
                 android:id="@+id/record"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/record"
-                android:layout_gravity="right"/>
+                android:layout_gravity="right" />
         </LinearLayout>
     </LinearLayout>
 

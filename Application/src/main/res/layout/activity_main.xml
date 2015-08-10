@@ -13,18 +13,17 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
-<LinearLayout
-      xmlns:android="http://schemas.android.com/apk/res/android"
-      android:orientation="vertical"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:id="@+id/sample_main_layout">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/sample_main_layout">
 
     <ViewAnimator
-          android:id="@+id/sample_output"
-          android:layout_width="match_parent"
-          android:layout_height="0px"
-          android:layout_weight="1">
+        android:id="@+id/sample_output"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1">
 
         <LinearLayout
             android:id="@+id/currentvalues"
@@ -37,76 +36,76 @@
                 android:id="@+id/voltage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="VOLTAGE"/>
+                android:text="VOLTAGE" />
 
             <TextView
                 style="@style/Widget.SampleMessage"
                 android:id="@+id/current"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="CURRENT"/>
+                android:text="CURRENT" />
 
             <TextView
                 style="@style/Widget.SampleMessage"
                 android:id="@+id/mbtemp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="MBTEMP"/>
+                android:text="MBTEMP" />
 
             <TextView
                 style="@style/Widget.SampleMessage"
                 android:id="@+id/battemp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="BATTEMP"/>
+                android:text="BATTEMP" />
 
             <TextView
                 style="@style/Widget.SampleMessage"
                 android:id="@+id/inclination"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="INCLINATION"/>
+                android:text="INCLINATION" />
 
             <TextView
                 style="@style/Widget.SampleMessage"
                 android:id="@+id/rps"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="RPS"/>
+                android:text="RPS" />
 
             <TextView
                 style="@style/Widget.SampleMessage"
                 android:id="@+id/power"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="POWER"/>
+                android:text="POWER" />
 
             <TextView
                 style="@style/Widget.SampleMessage"
                 android:id="@+id/buzzer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="BUZZER"/>
+                android:text="BUZZER" />
         </LinearLayout>
 
         <fragment
-              android:name="com.example.android.common.logger.LogFragment"
-              android:id="@+id/log_fragment"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent" />
+            android:name="com.example.android.common.logger.LogFragment"
+            android:id="@+id/log_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </ViewAnimator>
 
     <View
-          android:layout_width="match_parent"
-          android:layout_height="1dp"
-          android:background="@android:color/darker_gray" />
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
 
     <FrameLayout
-          android:id="@+id/sample_content_fragment"
-          android:layout_weight="2"
-          android:layout_width="match_parent"
-          android:layout_height="0px" />
+        android:id="@+id/sample_content_fragment"
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0px" />
 
 </LinearLayout>
 
